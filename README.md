@@ -1,2 +1,2 @@
 # otp-travel-time-matrix
-Build a Travel Time matrix using OpenTripPlanner (Reproducible Example)
+This repository aims to provide a reproducible of how to build a travel time matrix using OpenTripPlanner.
