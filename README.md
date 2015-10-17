@@ -7,7 +7,7 @@ As you will notice, the code is not working (yet). I've created this repo becaus
 
 There is more information about how to automate Open Trip Planner (OTP) [here](http://docs.opentripplanner.org/en/latest/Scripting/).
 
-**This repository should help you build a travel time matrix in 4 simple steps**
+#### This repository should help you build a travel time matrix in 4 simple steps
 
 
 ##### Step 1: Install Jython 2.7 in your computer
