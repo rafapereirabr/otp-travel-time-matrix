@@ -1,13 +1,11 @@
 # otp-travel-time-matrix
-This repository aims to provide a reproducible exmple of how to build a travel time matrix using OpenTripPlanner.
+This repository aims to provide a reproducible exmple of how to build a travel time matrix using OpenTripPlanner (OTP).
 
 As you will notice, the code is not working (yet). I've created this repo because I need you help to make it work :) and because it could be a useful reference for others in the future.
 
 
-
-There is more information about how to automate Open Trip Planner (OTP) [here](http://docs.opentripplanner.org/en/latest/Scripting/).
-
-#### This repository should help you build a travel time matrix in 4 simple steps
+___
+### This repository should help you build a travel time matrix in 4 simple steps
 
 
 ##### Step 1: Install Jython 2.7 in your computer
@@ -40,4 +38,6 @@ Now run this line to build the Graph.obj
 
 This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix.
 
+
+More information about how to automate OTP [here](http://docs.opentripplanner.org/en/latest/Scripting/).
 
