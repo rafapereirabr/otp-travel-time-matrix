@@ -39,10 +39,10 @@ for origin in points:
   spt = router.plan(req)
   if spt is None:	continue
 
-  # Evaluate the SPT for all colleges
+  # Evaluate the SPT for all points
   result = spt.eval(dests)
   
-  # Find the time to nearest college
+  # Find the time to other points
   if len(result) == 0:	minTime = -1
   else:			minTime = min([ r.getTime() for r in result ])
   
