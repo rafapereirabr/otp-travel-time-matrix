@@ -10,7 +10,6 @@ import time
 start_time = time.time()
 
 # Get the default router
-# Could also be called: router = otp.getRouter('paris')
 router = otp.getRouter('portland')
 
 # Create a default request for a given time
@@ -21,10 +20,10 @@ req.setMaxTimeSec(1800)
 req.setModes('WALK,BUS,RAIL') 
 
 
-#The file 'C:\OpenTripPlanner\target\sources.csv' has 3 columns (X, Y, and NAME) for the XY coordinates and an identifier (for example, 'Work' or 'Home')
+# Read Points of Origin
 points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
 
-#The file 'C:\OpenTripPlanner\target\dests.csv' has the same 3 columns above
+# Read Points of Destination
 dests = otp.loadCSVPopulation('points.csv', 'Y', 'X')
 
 
