@@ -1,8 +1,8 @@
 #!/usr/bin/jython
-from org.opentripplanner.scripting.api import *
+from org.opentripplanner.scripting.api import OtpsEntryPoint
 
 # Instantiate an OtpsEntryPoint
-otp = OtpsEntryPoint.fromArgs(['--graphs', 'C:/Users/rafa/Desktop/jython_portland',
+otp = OtpsEntryPoint.fromArgs(['--graphs', '.',
                                '--router', 'portland'])
 
 # Start timing the code
@@ -16,39 +16,30 @@ router = otp.getRouter('portland')
 # Create a default request for a given time
 req = otp.createRequest()
 req.setDateTime(2015, 9, 15, 10, 00, 00)
-req.setMaxTimeSec(1800)
-
+req.setMaxTimeSec(7200)
 req.setModes('WALK,BUS,RAIL') 
 
-
-#The file 'C:\OpenTripPlanner\target\sources.csv' has 3 columns (X, Y, and NAME) for the XY coordinates and an identifier (for example, 'Work' or 'Home')
+# The file points.csv contains the columns GEOID, X and Y.
 points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
-
-#The file 'C:\OpenTripPlanner\target\dests.csv' has the same 3 columns above
 dests = otp.loadCSVPopulation('points.csv', 'Y', 'X')
-
 
 # Create a CSV output
 matrixCsv = otp.createCSVOutput()
-matrixCsv.setHeader([ 'Origin', 'Destination', 'min_time', 'walK_distance', 'outro_temp' ])
+matrixCsv.setHeader([ 'Origin', 'Destination', 'Walk_distance', 'Travel_time' ])
 
 # Start Loop
 for origin in points:
-  print "Processing: ", origin
+  print "Processing origin: ", origin
   req.setOrigin(origin)
   spt = router.plan(req)
-  if spt is None:	continue
+  if spt is None: continue
 
   # Evaluate the SPT for all points
   result = spt.eval(dests)
   
-  # Find the time to other points
-  if len(result) == 0:	minTime = -1
-  else:			minTime = min([ r.getTime() for r in result ])
-  
   # Add a new row of result in the CSV output
-  matrixCsv.addRow([ origin.getStringData('GEOID'), r.getIndividual().getStringData('GEOID'), minTime, r.getWalkDistance() , r.getTime()])
-
+  for r in result:
+    matrixCsv.addRow([ origin.getStringData('GEOID'), r.getIndividual().getStringData('GEOID'), r.getWalkDistance() , r.getTime()])
 
 # Save the result
 matrixCsv.save('traveltime_matrix.csv')
