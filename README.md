@@ -18,7 +18,7 @@ Most of the files you need are in this repository alredy. The other files you ca
 * [jython-standalone.jar](http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar)
 
 * [otp-0.19.0-SNAPSHOT-shaded.jar](http://dev.opentripplanner.org/jars/otp-0.19.0-SNAPSHOT-shaded.jar)
-
+* [portland_oregon.osm.pbf](https://s3.amazonaws.com/metro-extracts.mapzen.com/portland_oregon.osm.pbf)
 
 
 ##### Step 3: Build Graph.obj
