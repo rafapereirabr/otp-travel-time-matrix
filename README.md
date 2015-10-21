@@ -1,8 +1,27 @@
 # otp-travel-time-matrix
-This repository aims to provide a reproducible exmple of how to build a travel time matrix using OpenTripPlanner (OTP).
+This repository aims to provide a reproducible example of how to build an Origin-Destination matrix using OpenTripPlanner (OTP). The Python script still can be improved, for example to increase speed/efficiency of the code. Contributions are welcomed !
 
-As you will notice, the code is not working (yet). I've created this repo because I need you help to make it work :) and because it could be a useful reference for others in the future.
+**Input**
+* An Open Street Map of the region in `.pbf` format
+* GTFS dataset
+* The OTP java application `.jar` file
+*  Jython standalone application `.jar` file
+* A  `.csv` file with long lat of the points i
 
+**Output**
+* A `.csv` file with the travel time between pairs of points. It looks something like this:
+```
+GEOID    GEOID    travel_time
+    1        1              0
+    1        2              7
+    1        3              6
+    2        1             10
+    2        2              0
+    2        3             12
+    3        1              5
+    3        2             10
+    3        3              0
+```
 
 ___
 ### This repository should help you build a travel time matrix in 4 simple steps
@@ -24,20 +43,22 @@ Most of the files you need are in this repository alredy. The other files you ca
 ##### Step 3: Build Graph.obj
 Open your Command Prompt and run this line to set the directory where you've saved the files
 
-`cd C:\Users\rafa\Desktop\otp-travel-time-matrix2`
+`cd C:\Users\rafa\Desktop\otp-travel-time-matrix`
 
 Now run this line to build the Graph.obj
 
-`java –Xmx10G -jar otp-0.19.0-SNAPSHOT-shaded.jar --cache C:\Users\rafa\Desktop\otp-travel-time-matrix2 --basePath C:\Users\rafa\Desktop\otp-travel-time-matrix2 --build C:\Users\rafa\Desktop\otp-travel-time-matrix2\portland`
+`java –Xmx10G -jar otp-0.19.0-SNAPSHOT-shaded.jar --cache C:\Users\rafa\Desktop\otp-travel-time-matrix --basePath C:\Users\rafa\Desktop\otp-travel-time-matrix --build C:\Users\rafa\Desktop\otp-travel-time-matrix`
 
 
 ##### Step 4: Run the Python script
 
-`c:\jython2.7.0\bin\jython.exe -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar test.py`
+`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar test.py`
 
 
-This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix.
 
+
+
+This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix. @laurentg has also made important contributions to this repository, to which I am grateful.
 
 More information about how to automate OTP [here](http://docs.opentripplanner.org/en/latest/Scripting/).
 
