@@ -18,17 +18,11 @@ req.setDateTime(2015, 9, 15, 10, 00, 00)
 req.setMaxTimeSec(7200)
 req.setModes('WALK,BUS,RAIL') 
 
-<<<<<<< HEAD
 
-# Read Points of Origin
+# Read Points of Destination - The file points.csv contains the columns GEOID, X and Y.
 points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
-
-# Read Points of Destination
-=======
-# The file points.csv contains the columns GEOID, X and Y.
-points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
->>>>>>> fd09da156550299f2c1b3776a6fdc703871e575b
 dests = otp.loadCSVPopulation('points.csv', 'Y', 'X')
+
 
 # Create a CSV output
 matrixCsv = otp.createCSVOutput()
