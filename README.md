@@ -12,15 +12,15 @@ This repository aims to provide a reproducible example of how to build an Origin
 * A `.csv` file with the travel time between pairs of points. It looks something like this:
 ```
 GEOID    GEOID    travel_time
-    1        1              0
-    1        2              7
-    1        3              6
-    2        1             10
-    2        2              0
-    2        3             12
-    3        1              5
-    3        2             10
-    3        3              0
+    1        1            60
+    1        2           861
+    1        3          2234
+    2        1           861
+    2        2            42
+    2        3          3032
+    3        1          2235
+    3        2          3040
+    3        3            92
 ```
 
 ___
