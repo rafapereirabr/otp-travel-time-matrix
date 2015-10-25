@@ -26,6 +26,7 @@ GEOID    GEOID    travel_time
 ___
 ### This repository should help you build a travel time matrix in 4 simple steps
 
+#### Python Version
 
 ##### Step 1: Install Jython 2.7 in your computer
 [Here](http://www.jython.org/downloads.html) you find the executable jar for installing Jython
@@ -54,8 +55,27 @@ Now run this line to build the Graph.obj
 
 `c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar test.py`
 
+#### Lisp Version
 
+##### Step 1: Get ABCL
 
+1. Go to <http://abcl.org>, download the binary distribution and put it somewhere you can get to it.
+
+2. Then go to <https://www.quicklisp.org> and download "quicklisp.lisp". 
+
+3. Get quicklisp: `java -jar abcl-bin-1.3.3/abcl.jar --load ~/quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(quit)'`
+
+##### Step2: Download files
+
+As in the python version, except the Jython jar file is unnecessary.
+
+##### Step3: Build Graph.obj
+
+As in the pyhon version
+
+##### Step4: Run the Lisp Script
+
+`java -d64 -XX:MaxPermSize=1g -XX:+CMSClassUnloadingEnabled -Xmx10G -XX:-UseGCOverheadLimit -Djava.library.path=. -cp otp-0.19.0-SNAPSHOT-shaded.jar:abcl-bin-1.3.3/abcl.jar org.armedbear.lisp.Main  --load ~/quicklisp/setup.lisp --load test.lisp --eval '(quit)'`
 
 
 This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix. @laurentg has also made important contributions to this repository, to which I am grateful.
