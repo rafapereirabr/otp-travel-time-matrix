@@ -14,9 +14,9 @@ router = otp.getRouter('portland')
 
 # Create a default request for a given time
 req = otp.createRequest()
-req.setDateTime(2015, 9, 15, 10, 00, 00)
-req.setMaxTimeSec(7200)
-req.setModes('WALK,BUS,RAIL') 
+req.setDateTime(2015, 9, 15, 10, 00, 00)  # set departure time
+req.setMaxTimeSec(7200)                   # set a limit to maximum travel time (seconds)
+req.setModes('WALK,BUS,RAIL')             # define transport mode
 
 
 # Read Points of Destination - The file points.csv contains the columns GEOID, X and Y.
