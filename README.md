@@ -1,5 +1,5 @@
 # otp-travel-time-matrix
-This repository aims to provide a reproducible example of how to build an Origin-Destination matrix using OpenTripPlanner (OTP). The Python script still can be improved, for example to increase speed/efficiency of the code. Contributions are welcomed !
+This repository aims to provide a reproducible example of how to build an Origin-Destination matrix using OpenTripPlanner (OTP) and Python. The Python scripts presented here still can be much improved and it would be great to have your contributions, specially if you have ideas on how improve the speed/efficiency of the code !
 
 **Input**
 * An Open Street Map of the region in `.pbf` format
@@ -32,7 +32,7 @@ ___
 
 ##### Step 2: Download files to your folder
 
-Most of the files you need are in this repository alredy. The other files you can download from here:
+Most of the files you need are in this repository already. The other files you can download from here:
 
 * [jython-standalone.jar](http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar)
 
