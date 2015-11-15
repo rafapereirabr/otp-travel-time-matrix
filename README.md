@@ -53,10 +53,14 @@ Now run this line to build the Graph.obj
 
 ##### Step 4: Run the Python script
 
-A simple script like `python_script.py` will return a travel time matrix for one single departing time (e.g. at 10:00:00 on  15-November-2015)
+Two options here:
+
+**4.1** A simple script like `python_script.py` will return a travel time matrix for one single departing time (e.g. at 10:00:00 on  15-November-2015)
+
 `c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script.py`
 
-Another option is to use a script like `python_script_loopHM.py`, which will create a different travel time matrix departing every ten minutes, say between 10am and 6pm.
+**4.2** Another option is to use a script like `python_script_loopHM.py`, which will create a different travel time matrix departing every ten minutes, say between 10am and 6pm, and save each matix in a separete `.csv` file
+
 `c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script_loopHM.py`
 
 
