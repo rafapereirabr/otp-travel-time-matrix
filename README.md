@@ -1,5 +1,5 @@
 # otp-travel-time-matrix
-This repository aims to provide a reproducible example of how to build an Origin-Destination matrix using OpenTripPlanner (OTP) and Python. The Python scripts presented here still can be much improved and it would be great to have your contributions, specially if you have ideas on how improve the speed/efficiency of the code, or include a progress bar etc !
+This repository aims to provide a reproducible example of how to build an Origin-Destination matrix using OpenTripPlanner (OTP) and Python. The Python scripts presented here still can be much improved and it would be great to have your contributions, specially if you have ideas on how to improve the speed/efficiency of the code, or include a progress bar etc !
 
 **Input**
 * An Open Street Map of the region in `.pbf` format
@@ -7,6 +7,7 @@ This repository aims to provide a reproducible example of how to build an Origin
 * The OTP java application `.jar` file
 *  Jython standalone application `.jar` file
 * A  `.csv` file with long lat of the points i
+* A Python script 
 
 **Output**
 * A `.csv` file with the travel time between pairs of points. It looks something like this:
@@ -52,9 +53,11 @@ Now run this line to build the Graph.obj
 
 ##### Step 4: Run the Python script
 
-`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar test.py`
+A simple script like `python_script.py` will return a travel time matrix for one single departing time (e.g. at 10:00:00 on  15-November-2015)
+`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script.py`
 
-
+Another option is to use a script like `python_script_loopHM.py`, which will create a different travel time matrix departing every ten minutes, say between 10am and 6pm.
+`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script_loopHM.py`
 
 
 
