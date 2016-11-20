@@ -26,7 +26,7 @@ for h in range(7, 13):      # Loop every hour between 7h and 13h
     req = otp.createRequest()
     req.setDateTime(2015, 9, 15, h, m, 00)  # set departure time
     req.setMaxTimeSec(7200)                 # set a limit to maximum travel time (seconds)
-    req.setModes('WALK,BUS,RAIL')           # define transport mode
+    req.setModes('WALK,TRANSIT')           # define transport mode : ("WALK,CAR, TRANSIT, TRAM,RAIL,SUBWAY,FUNICULAR,GONDOLA,CABLE_CAR,BUS")
     
     
     # Create a CSV output
@@ -35,7 +35,7 @@ for h in range(7, 13):      # Loop every hour between 7h and 13h
     
     # Start Loop
     for origin in points:
-      print "Processing origin: ", str(h)+"-"+str(m)," ", origin
+      print "Processing origin: ", str(h)+"-"+str(m)," ", origin.getStringData('GEOID')
       req.setOrigin(origin)
       spt = router.plan(req)
       if spt is None: continue
