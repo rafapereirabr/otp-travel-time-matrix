@@ -1,3 +1,6 @@
+import gc
+gc.collect()
+
 #!/usr/bin/jython
 from org.opentripplanner.scripting.api import OtpsEntryPoint
 
@@ -48,8 +51,8 @@ for h in range(7, 13):      # Loop every hour between 7h and 13h
         matrixCsv.addRow([ 2015, str(h) + ":" + str(m) + ":00", origin.getStringData('GEOID'), r.getIndividual().getStringData('GEOID'), r.getWalkDistance() , r.getTime()])
     
     # Save the result
-      matrixCsv.save('traveltime_matrix_'+ str(h)+"-"+str(m) + '.csv')
-
+    matrixCsv.save('traveltime_matrix_'+ str(h)+"-"+str(m) + '.csv')
+    gc.collect()
 
 # Stop timing the code
 print("Elapsed time was %g seconds" % (time.time() - start_time))
