@@ -17,7 +17,9 @@ req = otp.createRequest()
 req.setDateTime(2015, 9, 15, 10, 00, 00)  # set departure time
 req.setMaxTimeSec(7200)                   # set a limit to maximum travel time (seconds)
 req.setModes('WALK,BUS,RAIL')             # define transport mode
-
+# req.maxWalkDistance = 500 # set maximum walking distance ( kilometers ?)
+# req.walkSpeed = walkSpeed # set average walking speed ( meters ?)
+# req.bikeSpeed = bikeSpeed # set average cycling speed (miles per hour ?)
 
 # Read Points of Destination - The file points.csv contains the columns GEOID, X and Y.
 points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
@@ -26,7 +28,7 @@ dests = otp.loadCSVPopulation('points.csv', 'Y', 'X')
 
 # Create a CSV output
 matrixCsv = otp.createCSVOutput()
-matrixCsv.setHeader([ 'Origin', 'Destination', 'Walk_distance', 'Travel_time' ])
+matrixCsv.setHeader([ 'origin', 'destination', 'walk_distance', 'travel_time', 'boardings' ])
 
 # Start Loop
 for origin in points:
@@ -40,7 +42,7 @@ for origin in points:
   
   # Add a new row of result in the CSV output
   for r in result:
-    matrixCsv.addRow([ origin.getStringData('GEOID'), r.getIndividual().getStringData('GEOID'), r.getWalkDistance() , r.getTime()])
+    matrixCsv.addRow([ origin.getStringData('GEOID'), r.getIndividual().getStringData('GEOID'), r.getWalkDistance() , r.getTime(),  r.getBoardings() ])
 
 # Save the result
 matrixCsv.save('traveltime_matrix.csv')
