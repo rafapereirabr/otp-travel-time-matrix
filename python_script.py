@@ -12,6 +12,9 @@ start_time = time.time()
 # Get the default router
 router = otp.getRouter('portland')
 
+# set max snapping distance to connect trip origin to street network
+graph.getSampleFactory().setSearchRadiusM(500)
+
 # Create a default request for a given time
 req = otp.createRequest()
 req.setDateTime(2015, 9, 15, 10, 00, 00)  # set departure time
