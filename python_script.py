@@ -12,17 +12,16 @@ start_time = time.time()
 # Get the default router
 router = otp.getRouter('portland')
 
-# set max snapping distance to connect trip origin to street network
-graph.getSampleFactory().setSearchRadiusM(500)
 
-# Create a default request for a given time
+# Create a default request for a given departure time
 req = otp.createRequest()
 req.setDateTime(2015, 9, 15, 10, 00, 00)  # set departure time
 req.setMaxTimeSec(7200)                   # set a limit to maximum travel time (seconds)
 req.setModes('WALK,BUS,RAIL')             # define transport mode
-# req.maxWalkDistance = 500 # set maximum walking distance ( kilometers ?)
-# req.walkSpeed = walkSpeed # set average walking speed ( meters ?)
-# req.bikeSpeed = bikeSpeed # set average cycling speed (miles per hour ?)
+req.setSearchRadiusM(500)                 # set max snapping distance to connect trip origin to street network
+# req.maxWalkDistance = 500                 # set maximum walking distance ( kilometers ?)
+# req.walkSpeed = walkSpeed                 # set average walking speed ( meters ?)
+# req.bikeSpeed = bikeSpeed                 # set average cycling speed (miles per hour ?)
 
 # Read Points of Destination - The file points.csv contains the columns GEOID, X and Y.
 points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
