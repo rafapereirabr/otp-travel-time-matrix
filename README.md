@@ -1,5 +1,5 @@
 # otp-travel-time-matrix
-This repository aims to provide a reproducible example of how to build an Origin-Destination travel time matrix using OpenTripPlanner (OTP) and Python. The Python scripts presented here still can be much improved and it would be great to have your contributions, specially if you have ideas on how to improve the speed/efficiency of the code, or include a progress bar etc !
+This repository aims to provide a reproducible example of how to build an Origin-Destination travel time matrix using OpenTripPlanner (OTP) and Python. The Python scripts presented here can still be improved and it would be great to have your contributions, specially if you have ideas on how to improve the speed/efficiency of the code, or include a progress bar etc !
 
 **Input**
 * An Open Street Map of the region in `.pbf` format
