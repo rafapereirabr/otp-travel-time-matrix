@@ -78,8 +78,9 @@ More information about how to automate OTP [here](http://docs.opentripplanner.or
 
 If you have used this script in your work and you would like to cite it, you can use the following reference:
 [![DOI](https://zenodo.org/badge/44453629.svg)](https://zenodo.org/badge/latestdoi/44453629)
-
-Pereira, R. H. M. (2019). Tutorial with reproducible example to estimate a travel time matrix using OpenTripPlanner and Python: rafapereirabr/otp-travel-time-matrix. Python. Retrieved from https://github.com/rafapereirabr/otp-travel-time-matrix
-
+ 
+```
+Pereira, R. H. M. (2019). Tutorial with reproducible example to estimate a travel time matrix using OpenTripPlanner and Python. Retrieved from https://github.com/rafapereirabr/otp-travel-time-matrix. doi:10.5281/zenodo.3242134
+```
 
 
