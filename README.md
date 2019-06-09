@@ -36,8 +36,7 @@ ___
 Most of the files you need are in this repository already. The other files you can download from here:
 
 * [jython-standalone.jar](http://search.maven.org/remotecontent?filepath=org/python/jython-standalone/2.7.0/jython-standalone-2.7.0.jar)
-
-* [otp-0.19.0-SNAPSHOT-shaded.jar](http://maven.conveyal.com.s3.amazonaws.com/org/opentripplanner/otp/0.19.0/otp-0.19.0-shaded.jar)
+* [otp-1.3.0-shaded.jar](https://repo1.maven.org/maven2/org/opentripplanner/otp/1.3.0/otp-1.3.0-shaded.jar)
 * [portland_oregon.osm.pbf](https://s3.amazonaws.com/metro-extracts.mapzen.com/portland_oregon.osm.pbf)
 
 
