@@ -45,7 +45,7 @@ Open your Command Prompt and run this line to set the directory where you've sav
 
 `cd C:\Users\rafa\Desktop\otp-travel-time-matrix`
 
-Now run this line to build the Graph.obj
+Now run this line to build the Graph.obj. Once OTP has built the Graph.obj, move it to the subdirectory `portland`.
 
 `java –Xmx10G -jar otp-0.19.0-SNAPSHOT-shaded.jar --cache C:\Users\rafa\Desktop\otp-travel-time-matrix --basePath C:\Users\rafa\Desktop\otp-travel-time-matrix --build C:\Users\rafa\Desktop\otp-travel-time-matrix`
 
