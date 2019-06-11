@@ -47,7 +47,7 @@ Open your Command Prompt and run this line to set the directory where you've sav
 
 Now run this line to build the Graph.obj. Once OTP has built the Graph.obj, move it to the subdirectory `portland`.
 
-`java –Xmx10G -jar otp-0.19.0-SNAPSHOT-shaded.jar --cache C:\Users\rafa\Desktop\otp-travel-time-matrix --basePath C:\Users\rafa\Desktop\otp-travel-time-matrix --build C:\Users\rafa\Desktop\otp-travel-time-matrix`
+`java –Xmx10G -jar otp-1.3.0-shaded.jar --cache C:\Users\rafa\Desktop\otp-travel-time-matrix --basePath C:\Users\rafa\Desktop\otp-travel-time-matrix --build C:\Users\rafa\Desktop\otp-travel-time-matrix`
 
 
 #### Step 4: Run the Python script
@@ -56,16 +56,16 @@ Three options here:
 
 **4.1** A simple script like `python_script.py` will return a travel time matrix for one single deaprture time (e.g. at 10:00:00 on  15-November-2015)
 
-`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script.py`
+`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-1.3.0-shaded.jar python_script.py`
 
 **4.2** The second option is to use a script like `python_script_loopHM.py`, which will create a different travel time matrix departing every ten minutes, say between 10am and 6pm, and save each matix in a separete `.csv` file
 
-`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script_loopHM.py`
+`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-1.3.0-shaded.jar python_script_loopHM.py`
 
 
 **4.3** The third option uses the python script named `python_script_loopHM_parallel.py`, and it allows one to estimate various travel time matrices for different departure times (similarly to the second option) but using parallel computing. This makes things much faster because each computer processor will compute the travel-time matrix of a different departure time in parallel.
 
-`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-0.19.0-SNAPSHOT-shaded.jar python_script_loopHM_parallel.py`
+`c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-1.3.0-shaded.jar python_script_loopHM_parallel.py`
 
 
 This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix. @laurentg has also made important contributions to this repository, to which I am grateful. The python script that uses multiple threads to run in parallel was developed in collaboration with [Nate Wessel](https://github.com/Nate-Wessel). Nate did most of the heavy lifting, really.
