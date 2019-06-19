@@ -68,7 +68,7 @@ Three options here:
 `c:\jython2.7.0\bin\jython.exe -J-XX:-UseGCOverheadLimit -J-Xmx10G -Dpython.path=otp-1.3.0-shaded.jar python_script_loopHM_parallel.py`
 
 
-This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix. @laurentg has also made important contributions to this repository, to which I am grateful. The python script that uses multiple threads to run in parallel was developed in collaboration with [Nate Wessel](https://github.com/Nate-Wessel). Nate did most of the heavy lifting, really.
+This code is inspired by [@laurentg's code](https://github.com/opentripplanner/OpenTripPlanner/blob/master/src/test/resources/scripts/test.py) but it tries to achieve a different output, providing a travel time matrix. @laurentg has also made important contributions to this repository, to which I am grateful. The two python scripts that use multiple threads to run in parallel were  developed in collaboration with [Nate Wessel](https://github.com/Nate-Wessel) and Jader Martins. Nate and Jader did most of the heavy lifting, really.
 
 
 More information about how to automate OTP [here](http://docs.opentripplanner.org/en/latest/Scripting/).
