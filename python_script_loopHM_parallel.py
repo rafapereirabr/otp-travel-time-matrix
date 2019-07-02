@@ -2,13 +2,13 @@
 ###################################################################################################
 
 # max number of threads to use in parallel
-max_threads = 6
+max_threads = 8
 
 # Trips
 fromm = 10             # set first departure time
 until = 14             # set last time
 every = 30             # set frequency (every 30 minutes)
-time_threshold = 600  # set a limit to maximum travel time (seconds)
+time_threshold = 3600  # set a limit to maximum travel time (seconds)
 
 # set date of trips
 year= 2015
@@ -23,6 +23,7 @@ mydate = 20150915
 import gc
 gc.collect()
 
+import random
 
 # Start timing the code
 import time
@@ -51,13 +52,13 @@ points = otp.loadCSVPopulation('points.csv', 'Y', 'X')
 dests = otp.loadCSVPopulation('points.csv', 'Y', 'X')
 
 
-
 ### make a list of jobs to do
+# times should be randomly selected to avoid periodicity effects
 jobs = []
 for h in range(fromm, until):
-	for m in range(0,60,every):
-		jobs.append((h,m))
-
+  for m in range(0 ,60, every):
+    jobs.append((h, int(round(m + random.uniform(0, every)))))
+    
 # define a function describing a complete job
 # I just copy-pasted what you had in the loop into here
 def do_the_stuff(h,m):
@@ -69,8 +70,9 @@ def do_the_stuff(h,m):
 	# Create a default request for a given time
   req = otp.createRequest()
   req.setDateTime(year, month, day, h, m, 00)
-  req.setMaxTimeSec( time_threshold ) # 1h = 3600 seconds , 2h = 7200 seconds
+  req.setMaxTimeSec(time_threshold) # 1h = 3600 seconds , 2h = 7200 seconds
   req.setModes('WALK,TRANSIT,BUS,RAIL,SUBWAY,TRAM') # define transport mode : ("WALK,CAR, TRANSIT, TRAM,RAIL,SUBWAY,FUNICULAR,GONDOLA,CABLE_CAR,BUS")
+  req.setClampInitialWait(0)
   # for more routing options, check: http://dev.opentripplanner.org/javadoc/0.19.0/org/opentripplanner/scripting/api/OtpsRoutingRequest.html
 
 	# Create a CSV output
@@ -79,7 +81,7 @@ def do_the_stuff(h,m):
   
   # Start Loop
   for origin in points:
-    print "Processing origin: ", str(h)+"-"+str(m)," ", origin.getStringData('GEOID'), 'on ',threading.current_thread()
+    print "Processing origin: ", str(h)+"-"+str(m)," ", origin.getStringData('GEOID'), 'on ', threading.current_thread()
     req.setOrigin(origin)
     spt = router.plan(req)
     if spt is None: continue
@@ -94,7 +96,6 @@ def do_the_stuff(h,m):
 	# Save the result
   matrixCsv.save('traveltime_matrix_'+ str(h)+"-"+str(m) + '.csv')
 
-
 #
 # ^ that ^ function has to be defined before it's called
 # the threading bit is down here vvv
@@ -104,18 +105,18 @@ def do_the_stuff(h,m):
 #max_threads = int(raw_input('max threads (int) ? --> '))
 # start looping over jobs
 while len(jobs) > 0:
-	if threading.active_count() < max_threads + 1:
-		h,m = jobs.pop()
-		thread = threading.Thread(target=do_the_stuff,args=(h,m))
-#		thread.daemon = True
-		thread.start()
-	else:
-		sleep(0.1)
+  if threading.active_count() < max_threads + 1:
+    h,m = jobs.pop()
+    thread = threading.Thread(target=do_the_stuff, args=(h,m))
+#   thread.daemon = True
+    thread.start()
+  else:
+    sleep(0.1)
 # now wait for all daemon threads to end before letting
 # the main thread die. Otherwise stuff will get cut off
 # before it's finished
 while threading.active_count() > 1:
-	sleep(0.1)
+  sleep(0.1)
 print 'ALL JOBS COMPLETED!'
 
 print("Elapsed time was %g seconds" % (time.time() - start_time))
