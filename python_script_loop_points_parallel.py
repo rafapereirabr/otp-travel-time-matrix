@@ -103,6 +103,7 @@ def do_the_stuff(p):
   req.setMaxTimeSec(time_threshold)  # 1h = 3600 seconds , 2h = 7200 seconds
   # 'WALK,TRANSIT,BUS,RAIL,SUBWAY'
   req.setModes('WALK,TRANSIT,BUS,RAIL,SUBWAY,TRAM')
+  req.setClampInitialWait(0)                # clamp the initial wait time to zero
 
 # Create a CSV output
   matrixCsv = otp.createCSVOutput()
