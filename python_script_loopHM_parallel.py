@@ -72,7 +72,7 @@ def do_the_stuff(h,m):
   req.setDateTime(year, month, day, h, m, 00)
   req.setMaxTimeSec(time_threshold) # 1h = 3600 seconds , 2h = 7200 seconds
   req.setModes('WALK,TRANSIT,BUS,RAIL,SUBWAY,TRAM') # define transport mode : ("WALK,CAR, TRANSIT, TRAM,RAIL,SUBWAY,FUNICULAR,GONDOLA,CABLE_CAR,BUS")
-  req.setClampInitialWait(0)
+  req.setClampInitialWait(0)                        # clamp the initial wait time to zero
   # for more routing options, check: http://dev.opentripplanner.org/javadoc/0.19.0/org/opentripplanner/scripting/api/OtpsRoutingRequest.html
 
 	# Create a CSV output
