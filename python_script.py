@@ -18,6 +18,7 @@ req = otp.createRequest()
 req.setDateTime(2015, 9, 15, 10, 00, 00)  # set departure time
 req.setMaxTimeSec(7200)                   # set a limit to maximum travel time (seconds)
 req.setModes('WALK,BUS,RAIL')             # define transport mode
+req.setClampInitialWait(0)                # clamp the initial wait time to zero
 # req.maxWalkDistance = 3000                 # set the maximum distance (in meters) the user is willing to walk
 # req.walkSpeed = walkSpeed                 # set average walking speed ( meters ?)
 # req.bikeSpeed = bikeSpeed                 # set average cycling speed (miles per hour ?)
