@@ -1,3 +1,5 @@
+**UDATE**: you got interested in the repo, you should know that we have developed much easier and much more efficient ways of calculating travel time matrices in [python using the r5py package]([url](https://r5py.readthedocs.io/en/stable/)), and in [R using the r5r package]([url](https://ipeagit.github.io/r5r/)).
+
 # Tutorial with reproducible example to estimate a travel time matrix using OpenTripPlanner and Python
 This repository aims to provide a reproducible example of how to build an Origin-Destination travel time matrix using [OpenTripPlanner (OTP)](http://docs.opentripplanner.org/en/latest/) and Python. The Python scripts presented here can still be improved and it would be great to have your contributions, specially if you have ideas on how to improve the speed/efficiency of the code, or include a progress bar etc !
 
